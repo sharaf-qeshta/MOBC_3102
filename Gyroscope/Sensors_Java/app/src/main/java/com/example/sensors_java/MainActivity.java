@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         if(sensorEvent.sensor.getType() == Sensor.TYPE_GYROSCOPE)
         {
             float y = sensorEvent.values[1];
-            if (y < 0)
+            if (y > 0)
             {
                 audioManager.adjustStreamVolume(AudioManager.STREAM_NOTIFICATION, AudioManager.ADJUST_UNMUTE, 0);
                 audioManager.adjustStreamVolume(AudioManager.STREAM_ALARM, AudioManager.ADJUST_UNMUTE, 0);
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 audioManager.adjustStreamVolume(AudioManager.STREAM_RING, AudioManager.ADJUST_UNMUTE, 0);
                 audioManager.adjustStreamVolume(AudioManager.STREAM_SYSTEM, AudioManager.ADJUST_UNMUTE, 0);
             }
-            else if (y > 0)
+            else if (y < 0)
             {
                 audioManager.adjustStreamVolume(AudioManager.STREAM_NOTIFICATION, AudioManager.ADJUST_MUTE, 0);
                 audioManager.adjustStreamVolume(AudioManager.STREAM_ALARM, AudioManager.ADJUST_MUTE, 0);
